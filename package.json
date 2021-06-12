@@ -4,12 +4,16 @@
   "description": "Provide timestamp microservice.",
   "main": "index.js",
   "scripts": {
-    "start": "node server/server.js"
+    "start": "node index.js"
   },
-  "keywords": ["express", "Timestamp"],
+  "keywords": [
+    "express",
+    "Timestamp"
+  ],
   "author": "RasbeeTech",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "serve-favicon": "^2.5.0"
   }
 }
