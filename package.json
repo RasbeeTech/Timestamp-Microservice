@@ -1,0 +1,15 @@
+{
+  "name": "timestamp-microservice",
+  "version": "1.0.0",
+  "description": "Provide timestamp microservice.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "keywords": ["express", "Timestamp"],
+  "author": "RasbeeTech",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
