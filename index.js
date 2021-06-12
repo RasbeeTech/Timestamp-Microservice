@@ -19,10 +19,17 @@ app.use('/public', favicon(__dirname + '/public/favicon.png'));
 
 // Routes.
 app.get('/', (req, res) => {
-    absolutePath = __dirname + '/views/index.html';
-    res.sendFile(absolutePath);
+  absolutePath = __dirname + '/views/index.html';
+  res.sendFile(absolutePath);
 });
 
-app.get('/api/:time', (req, res) => {
-
+app.get('/api/:date?', (req, res) => {
+  const { date } = req.params;
+  let response = new Date(
+    Number(date) ? Number(date) : date
+  );
+  res.json({
+    unix: Number(response),
+    utc: response
+  });
 })
