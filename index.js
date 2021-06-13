@@ -3,12 +3,13 @@ var favicon = require('serve-favicon');
 
 const app = express()
 
-// Set port.
-const PORT = process.env.PORT || 3001;
+// Enable CORS.
+var cors = require('cors');
+app.use(cors({optionsSuccessStatus: 200}));
 
-console.log(__dirname + '/public');
 
 // Listen to port.
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
@@ -25,9 +26,17 @@ app.get('/', (req, res) => {
 
 app.get('/api/:date?', (req, res) => {
   const { date } = req.params;
-  let response = new Date(
+  let response;
+  if(!date){
+    response = new Date();
+  } else {
+    response = new Date(
     Number(date) ? Number(date) : date
-  );
+    );
+  }
+  if(response.toString() === 'Invalid Date' ){
+    res.json({error: response.toString()});
+  }
   res.json({
     unix: Number(response),
     utc: response.toUTCString()
