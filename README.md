@@ -3,7 +3,7 @@ A timestamp API.
 
 ### Examples usage:
 
-[project url]/api/2015-12-25  
+[Project URL]/api/2015-12-25  
 [Project URL]/api/1451001600000  
 
 ### Returns:
