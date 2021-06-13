@@ -30,6 +30,6 @@ app.get('/api/:date?', (req, res) => {
   );
   res.json({
     unix: Number(response),
-    utc: response
+    utc: response.toUTCString()
   });
 })
